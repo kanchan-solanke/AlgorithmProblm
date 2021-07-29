@@ -1,24 +1,36 @@
-public class InsertionSort {
-    public static void main(String[] args) {
-        String[] arr = {"Amravati", "Pune", "Mumbai", "Bangalore", "Hyderabad"};
-        String sortedArray[] = sort_sub(arr, arr.length);
-        for (int i = 0; i < sortedArray.length; i++) {
-            System.out.println(sortedArray[i]);
-        }
-    }
-
-    public static String[] sort_sub(String array[], int f) {
-        String temp = " ";
-        for (int i = 0; i < f; i++) {
-            for (int j = i + 1; j < f; j++) {
-                if (array[i].compareToIgnoreCase(array[j]) > 0) {
-                    temp = array[i];
-                    array[i] = array[j];
-                    array[j] = temp;
+public class BubbleSort{
+    // method for bubble sort
+    static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        int temp = 0;
+        for(int i=0; i < n; i++){
+            for(int j=1; j < (n-i); j++){
+                if(arr[j-1] > arr[j]){
+                    //swap elements
+                    temp = arr[j-1];
+                    arr[j-1] = arr[j];
+                    arr[j] = temp;
                 }
 
             }
         }
-        return array;
+
+    }
+    public static void main(String[] args) {
+        int arr[] ={10,456,89,32,46,890};
+
+        System.out.println("Array Before Bubble Sort");
+        for(int i=0; i < arr.length; i++){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+
+        bubbleSort(arr);//sorting array elements using bubble sort
+
+        System.out.println("Array After Bubble Sort");
+        for(int i=0; i < arr.length; i++){
+            System.out.print(arr[i] + " ");
+        }
+
     }
 }
