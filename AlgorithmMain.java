@@ -1,26 +1,24 @@
-import java.util.Arrays;
-import java.util.Scanner;
-
-public class BinarySearch {
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a word: ");
-        int n = sc.nextInt();
-
-        String[] arr = new String[n];
-        System.out.println("Enter a word:");
-        for (int i=0 ; i< arr.length; i++){
-            System.out.print("WORD " + (i + 1) + ": ");
-            arr[i] = sc.next();
+public class InsertionSort {
+    public static void main(String[] args) {
+        String[] arr = {"Amravati", "Pune", "Mumbai", "Bangalore", "Hyderabad"};
+        String sortedArray[] = sort_sub(arr, arr.length);
+        for (int i = 0; i < sortedArray.length; i++) {
+            System.out.println(sortedArray[i]);
         }
+    }
 
-        System.out.println("Enter a word you want to search for: ");
-        String word = sc.next();
-//Arrays to sort the word list
-        Arrays.sort(arr);
-        int index= Arrays.binarySearch(arr,word);
-        System.out.println(word+ "="+ index);
+    public static String[] sort_sub(String array[], int f) {
+        String temp = " ";
+        for (int i = 0; i < f; i++) {
+            for (int j = i + 1; j < f; j++) {
+                if (array[i].compareToIgnoreCase(array[j]) > 0) {
+                    temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
 
-
+            }
+        }
+        return array;
     }
 }
